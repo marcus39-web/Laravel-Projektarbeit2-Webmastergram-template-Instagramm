@@ -12,6 +12,14 @@
             <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}" alt="Profilbild" class="w-24 h-24 rounded-full mb-2">
         @endif
         <div class="text-xl font-bold">{{ Auth::user()->name }}</div>
+        <div class="text-sm text-gray-600 mt-2">
+            <strong>Posts:</strong> {{ Auth::user()->posts()->count() }}
+        </div>
+        <div class="text-sm text-gray-600 mt-1">
+            <strong>Follower:</strong> {{ Auth::user()->followers()->count() }}
+            &nbsp;|&nbsp;
+            <strong>Folgt:</strong> {{ Auth::user()->following()->count() }}
+        </div>
     </div>
 
     <form method="post" action="{{ route('profile.image.update') }}" enctype="multipart/form-data" class="mt-6 space-y-6">

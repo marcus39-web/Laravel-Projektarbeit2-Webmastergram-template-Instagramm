@@ -2,16 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\Support\Facades\Redirect;
+
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
+
+    /**
+     * Suche nach Nutzernamen.
+     */
+    public function search(Request $request): View
+    {
+        $query = $request->input('q');
+        $searchResults = [];
+        if ($query) {
+            $searchResults = \App\Models\User::where('name', 'like', '%' . $query . '%')->get();
+        }
+        return view('profile.edit', [
+            'user' => $request->user(),
+            'posts' => $request->user()->posts()->latest()->get(),
+            'searchResults' => $searchResults,
+        ]);
+    }
     /**
      * Display the user's profile form.
      */
@@ -19,6 +36,7 @@ class ProfileController extends Controller
     {
         return view('profile.edit', [
             'user' => $request->user(),
+            'posts' => $request->user()->posts()->latest()->get(),
         ]);
     }
 
@@ -66,7 +84,7 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
-        Auth::logout();
+        \Auth::logout();
 
         $user->delete();
 
@@ -74,5 +92,25 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    /**
+     * Update the user's profile image.
+     */
+    public function updateImage(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'profile_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+        ]);
+
+        $user = $request->user();
+
+        if ($request->hasFile('profile_image')) {
+            $path = $request->file('profile_image')->store('profile_images', 'public');
+            $user->profile_image = $path;
+            $user->save();
+        }
+
+        return Redirect::route('profile.edit')->with('status', 'profile-image-updated');
     }
 }
