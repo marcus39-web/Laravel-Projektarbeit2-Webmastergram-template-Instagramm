@@ -1,3 +1,6 @@
+    // Initialisierung des User-Modells
+    // Beziehungen: Posts, Follower, Following
+    // Methoden für User-bezogene Logik
 <?php
 
 namespace App\Models;

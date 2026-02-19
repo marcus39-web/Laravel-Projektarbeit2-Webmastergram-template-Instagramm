@@ -1,27 +1,172 @@
-## Webmastergram: Template
+# Webmastergram – Instagram-Klon mit Laravel
 
-As the name suggests, **Webmastergram** is an Instagram clone. Webmastergram has the primary features of a login including email verification, image upload, profile, timeline, as well as *like* and *follow* systems. 
+## Übersicht
 
-Ultimately, the basic functions of the well-known social network shall be implemented. 
+Webmastergram ist eine moderne Social-Media-Webanwendung, inspiriert von Instagram, entwickelt mit Laravel, Tailwind CSS und Docker. Nutzer können Profile erstellen, Beiträge posten, liken, folgen, Benachrichtigungen erhalten und andere Nutzer suchen.
 
 ---
 
-This is the starting point from which you can begin the assignment. The basic functions have been prepared, but you can expand and customize them as you like. Don't limit your creativity and ensure a clean, performant implementation. Don't forget to create a database.
+## Features
 
-## License and terms of use
+- Registrierung & Login (mit Authentifizierung)
+- Nutzerprofile mit Profilbild, Username, Follower/Following-Anzeige
+- Beiträge (Text & Bild), eigene Timeline
+- Likes & Unlikes für Beiträge
+- Folgen/Entfolgen von Nutzern
+- Benachrichtigungen (z.B. neue Follower)
+- Nutzer-Suche mit Filter
+- Passwort ändern & Account löschen
+- Responsive Design mit Tailwind CSS
+- Docker-Unterstützung für einfache Entwicklung
 
-© Web Professional Institute Inc. All rights reserved.
+---
 
-This material is provided solely for students enrolled in courses offered by Web Professional Institute Inc. By accessing or using this code, you acknowledge that it is strictly for educational use within the context of Web Professional Institute Inc. programs.
+## Installation
 
-**Usage Restrictions:**
+### Voraussetzungen
 
-- Redistribution, sharing, or copying of this material outside the course environment is strictly prohibited.
-- The content is designed to support your learning objectives and is not authorized for commercial projects, public repositories, or applications beyond the course scope.
-- Unauthorized commercial use or open-source distribution is strictly prohibited and may result in expulsion from the program and legal action.
+- Docker & Docker Compose
+- Node.js & npm (für Frontend)
+- Git
 
-**Agreement & Rights:**
+### Schritte
 
-As a student, you have agreed to these terms as part of your enrollment agreement, which includes additional details on permitted uses, restrictions, and policies. The author and Web Professional Institute Inc. retain all rights to this material, including the code base and instructional content.
+1. **Repository klonen**
 
-For any questions regarding these terms, please contact Web Professional Institute Inc. for clarification.
+   ```bash
+   git clone <dein-repo-link>
+   cd laravel-advanced-webmastergram-template-marcus39-web
+   ```
+
+2. **Abhängigkeiten installieren**
+
+   ```bash
+   npm install
+   composer install
+   ```
+
+3. **Umgebungsvariablen konfigurieren**
+   - Kopiere `.env.example` zu `.env`
+   - Passe Datenbank-Zugangsdaten an (MySQL, Docker-Container)
+
+4. **Docker starten**
+
+   ```bash
+   ./vendor/bin/sail up
+   ```
+
+5. **Migrationen ausführen**
+
+   ```bash
+   ./vendor/bin/sail artisan migrate
+   ```
+
+6. **Frontend starten**
+
+   ```bash
+   npm run dev
+   ```
+
+7. **App im Browser öffnen**
+   - Standard: [http://localhost](http://localhost)
+
+---
+
+## Projektstruktur
+
+- `app/Http/Controllers/` – Controller für alle Features
+- `app/Models/` – Datenbank-Modelle (User, Post, etc.)
+- `resources/views/` – Blade-Templates für das UI
+- `routes/web.php` – Routing der Anwendung
+- `database/migrations/` – Datenbankschema
+- `public/` – Einstiegspunkt für Webserver
+- `storage/` – Cache, Logs, Uploads
+
+---
+
+## Wichtige Befehle
+
+- **Migrationen:**  
+  `./vendor/bin/sail artisan migrate`
+- **Seeder:**  
+  `./vendor/bin/sail artisan db:seed`
+- **Cache leeren:**  
+  `./vendor/bin/sail artisan config:clear && ./vendor/bin/sail artisan route:clear && ./vendor/bin/sail artisan view:clear`
+- **Tests ausführen:**  
+  `./vendor/bin/sail artisan test`
+
+---
+
+## Entwicklungshinweise
+
+- Änderungen an Routen oder Controller erfordern oft ein Leeren des Caches.
+- Rechte für `storage/` und `bootstrap/cache` müssen korrekt gesetzt sein (`chmod -R 775`).
+- Docker-Container muss laufen, damit MySQL und Laravel funktionieren.
+
+---
+
+## Mitwirken
+
+Pull Requests und Issues sind willkommen!  
+Bitte Code sauber halten und deutsche Kommentare für den Ablauf verwenden.
+
+---
+
+## Lizenz
+
+Dieses Projekt steht unter der MIT-Lizenz.
+
+---
+
+## Tree-Struktur
+
+```
+laravel-advanced-webmastergram-template-marcus39-web/
+├── artisan
+├── composer.json
+├── docker-compose.yml
+├── package.json
+├── phpunit.xml
+├── postcss.config.js
+├── README.md
+├── tailwind.config.js
+├── vite.config.js
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   ├── Models/
+│   └── Providers/
+├── bootstrap/
+│   ├── app.php
+│   ├── providers.php
+│   └── cache/
+├── config/
+│   ├── app.php
+│   ├── auth.php
+│   ├── ...
+├── database/
+│   ├── factories/
+│   ├── migrations/
+│   └── seeders/
+├── public/
+│   ├── index.php
+│   └── robots.txt
+├── resources/
+│   ├── css/
+│   ├── js/
+│   └── views/
+├── routes/
+│   ├── console.php
+│   └── web.php
+├── storage/
+│   ├── app/
+│   ├── framework/
+│   └── logs/
+├── tests/
+│   ├── Feature/
+│   └── Unit/
+```
+
+---
+
+Bei Fragen oder Problemen einfach melden! Viel Spaß mit Webmastergram 🚀

@@ -1,3 +1,6 @@
+    // Initialisierung des Post-Modells
+    // Beziehungen: User, Likes
+    // Methoden für Post-bezogene Logik
 <?php
 
 namespace App\Models;

@@ -1,3 +1,5 @@
+    // Layout-Komponente für Gäste
+    // Definiert das Grundlayout für nicht eingeloggte Nutzer
 <?php
 
 namespace App\View\Components;
