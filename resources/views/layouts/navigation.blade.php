@@ -15,6 +15,15 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('notifications.index')" :active="request()->routeIs('notifications.index')">
+                        {{ __('Benachrichtigungen') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('posts.create')" :active="request()->routeIs('posts.create')">
+                        {{ __('Neuer Post') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('users.search')" :active="request()->routeIs('users.search')">
+                        {{ __('Nutzer suchen') }}
+                    </x-nav-link>
                 </div>
             </div>
 
