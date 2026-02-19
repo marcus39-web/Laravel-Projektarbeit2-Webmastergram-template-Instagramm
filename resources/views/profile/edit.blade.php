@@ -17,7 +17,23 @@
                         <div class="mt-4">
                             <h3 class="font-semibold mb-2">Suchergebnisse:</h3>
                             @forelse($searchResults as $user)
-                                <div class="border-b py-1">{{ $user->name }} ({{ $user->email }})</div>
+                                <div class="border-b py-1 flex items-center justify-between">
+                                    <span>{{ $user->name }} ({{ $user->email }})</span>
+                                    @if(auth()->id() !== $user->id)
+                                        @if(auth()->user()->following->contains($user->id))
+                                            <form method="POST" action="{{ route('users.unfollow', $user->id) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="bg-red-500 text-white px-2 py-1 rounded text-xs">Entfolgen</button>
+                                            </form>
+                                        @else
+                                            <form method="POST" action="{{ route('users.follow', $user->id) }}">
+                                                @csrf
+                                                <button type="submit" class="bg-green-500 text-white px-2 py-1 rounded text-xs">Folgen</button>
+                                            </form>
+                                        @endif
+                                    @endif
+                                </div>
                             @empty
                                 <div class="text-gray-500">Keine Nutzer gefunden.</div>
                             @endforelse
