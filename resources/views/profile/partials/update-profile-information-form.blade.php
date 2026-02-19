@@ -47,6 +47,41 @@
             @endif
         </div>
 
+        <!-- Bio -->
+        <div>
+            <x-input-label for="bio" :value="__('Bio')" />
+            <textarea id="bio" name="bio" class="mt-1 block w-full" rows="3">{{ old('bio', $user->bio) }}</textarea>
+            <x-input-error class="mt-2" :messages="$errors->get('bio')" />
+        </div>
+
+        <!-- Location -->
+        <div>
+            <x-input-label for="location" :value="__('Location')" />
+            <x-text-input id="location" name="location" type="text" class="mt-1 block w-full" :value="old('location', $user->location)" />
+            <x-input-error class="mt-2" :messages="$errors->get('location')" />
+        </div>
+
+        <!-- Website -->
+        <div>
+            <x-input-label for="website" :value="__('Website')" />
+            <x-text-input id="website" name="website" type="url" class="mt-1 block w-full" :value="old('website', $user->website)" />
+            <x-input-error class="mt-2" :messages="$errors->get('website')" />
+        </div>
+
+        <!-- Twitter -->
+        <div>
+            <x-input-label for="twitter" :value="__('Twitter')" />
+            <x-text-input id="twitter" name="twitter" type="text" class="mt-1 block w-full" :value="old('twitter', $user->twitter)" />
+            <x-input-error class="mt-2" :messages="$errors->get('twitter')" />
+        </div>
+
+        <!-- Instagram -->
+        <div>
+            <x-input-label for="instagram" :value="__('Instagram')" />
+            <x-text-input id="instagram" name="instagram" type="text" class="mt-1 block w-full" :value="old('instagram', $user->instagram)" />
+            <x-input-error class="mt-2" :messages="$errors->get('instagram')" />
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 

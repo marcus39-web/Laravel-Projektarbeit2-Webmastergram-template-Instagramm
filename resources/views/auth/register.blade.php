@@ -39,6 +39,41 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <!-- Bio -->
+        <div class="mt-4">
+            <x-input-label for="bio" :value="__('Bio')" />
+            <textarea id="bio" class="block mt-1 w-full" name="bio" rows="3">{{ old('bio') }}</textarea>
+            <x-input-error :messages="$errors->get('bio')" class="mt-2" />
+        </div>
+
+        <!-- Location -->
+        <div class="mt-4">
+            <x-input-label for="location" :value="__('Location')" />
+            <x-text-input id="location" class="block mt-1 w-full" type="text" name="location" :value="old('location')" />
+            <x-input-error :messages="$errors->get('location')" class="mt-2" />
+        </div>
+
+        <!-- Website -->
+        <div class="mt-4">
+            <x-input-label for="website" :value="__('Website')" />
+            <x-text-input id="website" class="block mt-1 w-full" type="url" name="website" :value="old('website')" />
+            <x-input-error :messages="$errors->get('website')" class="mt-2" />
+        </div>
+
+        <!-- Twitter -->
+        <div class="mt-4">
+            <x-input-label for="twitter" :value="__('Twitter')" />
+            <x-text-input id="twitter" class="block mt-1 w-full" type="text" name="twitter" :value="old('twitter')" />
+            <x-input-error :messages="$errors->get('twitter')" class="mt-2" />
+        </div>
+
+        <!-- Instagram -->
+        <div class="mt-4">
+            <x-input-label for="instagram" :value="__('Instagram')" />
+            <x-text-input id="instagram" class="block mt-1 w-full" type="text" name="instagram" :value="old('instagram')" />
+            <x-input-error :messages="$errors->get('instagram')" class="mt-2" />
+        </div>
+
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
