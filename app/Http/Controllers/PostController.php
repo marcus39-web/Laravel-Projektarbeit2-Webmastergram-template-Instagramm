@@ -17,15 +17,18 @@ class PostController extends Controller
             'content' => ['required', 'string', 'max:500'],
         ]);
 
-        $path = $request->file('image')->store('posts', 'public');
-
-        $post = \App\Models\Post::create([
-            'user_id' => $request->user()->id,
-            'image' => $path,
-            'title' => $request->title,
-            'content' => $request->content,
-        ]);
-
+        try {
+            $path = $request->file('image')->store('posts', 'public');
+            $post = \App\Models\Post::create([
+                'user_id' => $request->user()->id,
+                'image' => $path,
+                'title' => $request->title,
+                'content' => $request->content,
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Fehler beim Speichern des Posts: ' . $e->getMessage());
+            return redirect()->back()->withErrors(['image' => 'Das Bild oder der Post konnte nicht gespeichert werden.']);
+        }
         return redirect()->route('profile.edit')->with('status', 'post-created');
 
         // E-Mail-Verifizierung prüfen
@@ -42,18 +45,21 @@ class PostController extends Controller
         ]);
         \Log::info('Nach Validierung');
 
-        $path = $request->file('image')->store('posts', 'public');
-
-        $userId = Auth::id();
-        \Log::info('User-ID für Post:', ['user_id' => $userId]);
-        $post = \App\Models\Post::create([
-            'user_id' => $userId,
-            'image' => $path,
-            'content' => $request->caption,
-            'title' => '',
-        ]);
-        \Log::info('Post gespeichert?', ['post' => $post]);
-
+        try {
+            $path = $request->file('image')->store('posts', 'public');
+            $userId = Auth::id();
+            \Log::info('User-ID für Post:', ['user_id' => $userId]);
+            $post = \App\Models\Post::create([
+                'user_id' => $userId,
+                'image' => $path,
+                'content' => $request->caption,
+                'title' => '',
+            ]);
+            \Log::info('Post gespeichert?', ['post' => $post]);
+        } catch (\Exception $e) {
+            \Log::error('Fehler beim Speichern des Posts (Variante 2): ' . $e->getMessage());
+            return redirect()->back()->withErrors(['image' => 'Das Bild oder der Post konnte nicht gespeichert werden.']);
+        }
         return Redirect()->route('profile.edit')->with('status', 'post-created');
     }
 }

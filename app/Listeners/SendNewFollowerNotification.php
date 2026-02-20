@@ -14,6 +14,10 @@ class SendNewFollowerNotification implements ShouldQueue
 
     public function handle(NewFollower $event)
     {
-        Mail::to($event->followed->email)->send(new NewFollowerMail($event->followed, $event->follower));
+        try {
+            Mail::to($event->followed->email)->send(new NewFollowerMail($event->followed, $event->follower));
+        } catch (\Exception $e) {
+            \Log::error('Fehler beim Senden der Follower-Benachrichtigung: ' . $e->getMessage());
+        }
     }
 }

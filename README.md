@@ -106,6 +106,29 @@ Webmastergram ist eine moderne Social-Media-Webanwendung, inspiriert von Instagr
 
 ---
 
+## Codequalität und Best Practices
+
+### Namenskonventionen & Coding-Richtlinien
+
+- Alle Klassen, Methoden und Namespaces folgen den PSR-Standards und Laravel-Konventionen.
+- Die Prinzipien von SOLID und DRY werden beachtet: Jede Klasse hat eine klar definierte Aufgabe, wiederverwendbare Methoden werden genutzt und Dopplungen vermieden.
+
+### Vermeidung von N+1-Problemen und unnötigen Datenbank-Queries
+
+- Eloquent-Relationen werden bei Listenabfragen mit `with()` eager geladen, um N+1-Probleme zu vermeiden (z. B. `Post::with('user')->get()`).
+- Bei komplexen oder großen Datenmengen wird auf effiziente Abfragen und Indexnutzung geachtet.
+- Unnötige oder doppelte Datenbankabfragen werden vermieden.
+
+### Fehlerbehandlung und Ausfallsicherheit
+
+- Kritische Dateioperationen (z. B. Bild-Uploads) und der Mailversand sind mit try/catch-Blöcken abgesichert. Fehler werden geloggt und dem Nutzer eine verständliche Fehlermeldung angezeigt.
+- Beim Hochladen von Bildern (Profilbild, Post-Bild) wird ein Fehler beim Speichern erkannt und als Fehlernachricht im Frontend ausgegeben.
+- Beim Versand von Benachrichtigungs-E-Mails werden Fehler abgefangen und ins Log geschrieben.
+- Logging aller Fehler mit \Log::error
+- Nutzerfreundliche Fehlermeldungen im Frontend
+
+Siehe z. B. die Controller `ProfileController`, `PostController` und den Listener `SendNewFollowerNotification` für die Umsetzung dieser Prinzipien.
+
 ## Mitwirken
 
 Pull Requests und Issues sind willkommen!  
@@ -167,5 +190,3 @@ laravel-advanced-webmastergram-template-marcus39-web/
 │   ├── Feature/
 │   └── Unit/
 ```
-
----
