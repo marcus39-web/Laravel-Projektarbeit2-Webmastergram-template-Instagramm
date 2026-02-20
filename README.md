@@ -144,7 +144,7 @@ Dieses Projekt steht unter der MIT-Lizenz.
 
 ## Copyright
 
-Dieses Projekt wurde von Marcus erstellt. Alle Rechte vorbehalten.
+Dieses Projekt wurde von Marcus Reiser erstellt. Alle Rechte vorbehalten.
 
 ---
 
