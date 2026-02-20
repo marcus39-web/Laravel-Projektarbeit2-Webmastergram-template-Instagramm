@@ -1,5 +1,3 @@
-    // Service Provider für globale Einstellungen
-    // Registriert Services und Boot-Logik
 <?php
 
 namespace App\Providers;

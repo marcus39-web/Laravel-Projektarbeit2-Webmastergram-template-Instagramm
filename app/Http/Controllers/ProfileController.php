@@ -1,6 +1,3 @@
-    // Controller für Profilseite
-    // Zeigt Profilinformationen, bearbeitet Profil, Bild und Passwort
-    // Methoden: edit, update, updateImage, updatePassword, destroy
 <?php
 
 namespace App\Http\Controllers;

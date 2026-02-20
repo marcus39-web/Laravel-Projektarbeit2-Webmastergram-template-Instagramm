@@ -69,6 +69,7 @@ Webmastergram ist eine moderne Social-Media-Webanwendung, inspiriert von Instagr
 
 7. **App im Browser öffnen**
    - Standard: [http://localhost](http://localhost)
+   - Mailpit: [http://localhoast:8025] (http://localhoast:8025)
 
 ---
 
