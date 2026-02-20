@@ -45,7 +45,7 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->only(['bio', 'location', 'website', 'twitter', 'instagram']));
+        $request->user()->fill($request->only(['name', 'bio', 'location', 'website', 'twitter', 'instagram']));
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
