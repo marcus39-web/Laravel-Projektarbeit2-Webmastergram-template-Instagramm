@@ -82,6 +82,6 @@
     </div>
 </body>
 <footer>
-    <p>&copy; 2026 Marcus Reiser. Alle Rechte vorbehalten.</p>
+    <p>&copy; 2026 Marcus. Alle Rechte vorbehalten.</p>
 </footer>
 </html>
