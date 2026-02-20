@@ -8,6 +8,9 @@ use App\Models\Post;
 
 class TimelineController extends Controller
 {
+    /**
+     * Zeigt die Timeline des Benutzers an.
+     */
     public function index()
     {
         $user = Auth::user();

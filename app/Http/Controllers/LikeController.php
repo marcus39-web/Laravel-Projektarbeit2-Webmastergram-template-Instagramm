@@ -8,6 +8,9 @@ use App\Models\Post;
 
 class LikeController extends Controller
 {
+    /**
+     * Liked einen Post.
+     */
     public function like(Post $post)
     {
         $user = Auth::user();
@@ -15,6 +18,9 @@ class LikeController extends Controller
         return back();
     }
 
+    /**
+     * Entfernt das Like von einem Post.
+     */
     public function unlike(Post $post)
     {
         $user = Auth::user();

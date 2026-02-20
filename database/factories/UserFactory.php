@@ -8,16 +8,18 @@ use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ *
+ * Benutzer-Factory für das User-Modell.
  */
 class UserFactory extends Factory
 {
     /**
-     * The current password being used by the factory.
+     * Das aktuell von der Factory verwendete Passwort.
      */
     protected static ?string $password;
 
     /**
-     * Define the model's default state.
+     * Definiert den Standardzustand des Modells.
      *
      * @return array<string, mixed>
      */
@@ -33,7 +35,7 @@ class UserFactory extends Factory
     }
 
     /**
-     * Indicate that the model's email address should be unverified.
+     * Gibt an, dass die E-Mail-Adresse des Modells nicht verifiziert sein soll.
      */
     public function unverified(): static
     {

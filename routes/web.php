@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\GithubController;
 use Illuminate\Support\Facades\Route;
 
+// Hauptseite
 Route::get('/', function () {
     return view('welcome');
 });
@@ -12,9 +13,11 @@ Route::get('/', function () {
 
 use App\Http\Controllers\TimelineController;
 
+// Timeline anzeigen (nur für eingeloggte/verifizierte Nutzer)
 Route::get('/timeline', [TimelineController::class, 'index'])->middleware(['auth', 'verified'])->name('timeline');
 
 // Dashboard-Route auf Timeline umleiten
+// Dashboard-Route leitet auf Timeline um
 Route::get('/dashboard', function () {
     return redirect()->route('timeline');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -26,6 +29,7 @@ use App\Models\User;
 
 use App\Http\Controllers\NotificationController;
 
+// Authentifizierte Nutzer: Profile, Posts, Likes, Follows, Benachrichtigungen
 Route::middleware('auth')->group(function () {
     Route::get('/users/search', [UserSearchController::class, 'index'])->name('users.search');
     Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
@@ -45,6 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/users/{user}/unfollow', [FollowController::class, 'unfollow'])->name('users.unfollow');
 });
 
+// Öffentliche Profilseite eines Nutzers
 Route::get('/users/{user}', function (User $user) {
     return view('users.show', [
         'user' => $user,
@@ -52,7 +57,9 @@ Route::get('/users/{user}', function (User $user) {
     ]);
 })->name('users.show');
 
+// GitHub OAuth Login
 Route::get('/auth/github', [GithubController::class, 'redirect'])->name('github.login');
 Route::get('/auth/github/callback', [GithubController::class, 'callback']);
 
+// Authentifizierungsrouten einbinden
 require __DIR__.'/auth.php';

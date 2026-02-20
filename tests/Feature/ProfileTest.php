@@ -2,6 +2,7 @@
 
 use App\Models\User;
 
+// Test: Profilseite wird angezeigt
 test('profile page is displayed', function () {
     $user = User::factory()->create();
 
@@ -12,6 +13,7 @@ test('profile page is displayed', function () {
     $response->assertOk();
 });
 
+// Test: Profilinformationen können aktualisiert werden
 test('profile information can be updated', function () {
     $user = User::factory()->create();
 
@@ -33,6 +35,7 @@ test('profile information can be updated', function () {
     $this->assertNull($user->email_verified_at);
 });
 
+// Test: E-Mail-Verifizierungsstatus bleibt gleich, wenn E-Mail unverändert
 test('email verification status is unchanged when the email address is unchanged', function () {
     $user = User::factory()->create();
 
@@ -50,6 +53,7 @@ test('email verification status is unchanged when the email address is unchanged
     $this->assertNotNull($user->refresh()->email_verified_at);
 });
 
+// Test: Benutzer kann sein Konto löschen
 test('user can delete their account', function () {
     $user = User::factory()->create();
 
@@ -67,6 +71,7 @@ test('user can delete their account', function () {
     $this->assertNull($user->fresh());
 });
 
+// Test: Zum Löschen des Kontos muss das richtige Passwort angegeben werden
 test('correct password must be provided to delete account', function () {
     $user = User::factory()->create();
 

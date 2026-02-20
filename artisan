@@ -1,15 +1,18 @@
-#!/usr/bin/env php
+define('LARAVEL_START', microtime(true));
+
 <?php
 
 use Symfony\Component\Console\Input\ArgvInput;
 
+// Startzeit der Anwendung festlegen
 define('LARAVEL_START', microtime(true));
 
-// Register the Composer autoloader...
+// Registriere den Composer Autoloader
 require __DIR__.'/vendor/autoload.php';
 
-// Bootstrap Laravel and handle the command...
+// Bootstrappe Laravel und führe den Konsolenbefehl aus
 $status = (require_once __DIR__.'/bootstrap/app.php')
     ->handleCommand(new ArgvInput);
 
+// Beende das Skript mit dem Rückgabewert des Befehls
 exit($status);

@@ -14,7 +14,7 @@ class ProfileController extends Controller
 {
 
     /**
-     * Suche nach Nutzernamen.
+     * Sucht nach Nutzernamen.
      */
     public function search(Request $request): View
     {
@@ -30,7 +30,7 @@ class ProfileController extends Controller
         ]);
     }
     /**
-     * Display the user's profile form.
+     * Zeigt das Profilformular des Benutzers an.
      */
     public function edit(Request $request): View
     {
@@ -41,7 +41,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the user's profile information.
+     * Aktualisiert die Profilinformationen des Benutzers.
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
@@ -57,7 +57,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the user's password.
+     * Aktualisiert das Passwort des Benutzers.
      */
     public function updatePassword(Request $request): RedirectResponse
     {
@@ -74,7 +74,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Delete the user's account.
+     * Löscht das Benutzerkonto.
      */
     public function destroy(Request $request): RedirectResponse
     {
@@ -95,7 +95,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the user's profile image.
+     * Aktualisiert das Profilbild des Benutzers.
      */
     public function updateImage(Request $request): RedirectResponse
     {

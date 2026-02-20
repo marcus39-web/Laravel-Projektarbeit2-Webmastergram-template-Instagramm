@@ -10,7 +10,7 @@ class Post extends Model
     use HasFactory;
 
     /**
-     * The attributes that are mass assignable.
+     * Die Attribute, die massenweise zuweisbar sind.
      *
      * @var array<int, string>
      */
@@ -22,7 +22,7 @@ class Post extends Model
     ];
 
     /**
-     * Get the user that owns the post.
+     * Gibt den Benutzer zurück, dem der Post gehört.
      */
     public function user()
     {

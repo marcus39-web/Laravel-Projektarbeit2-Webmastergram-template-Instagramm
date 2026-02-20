@@ -5,6 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
+    /**
+     * Erstellt die Tabelle "follows".
+     */
     public function up()
     {
         Schema::create('follows', function (Blueprint $table) {
@@ -16,6 +19,9 @@ return new class extends Migration {
         });
     }
 
+    /**
+     * Löscht die Tabelle "follows" wieder.
+     */
     public function down()
     {
         Schema::dropIfExists('follows');

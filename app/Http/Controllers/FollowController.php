@@ -11,6 +11,9 @@ use App\Notifications\NewFollowerNotification;
 
 class FollowController extends Controller
 {
+    /**
+     * Folgt einem Benutzer.
+     */
     public function follow(Request $request, $userId): RedirectResponse
     {
         $userToFollow = User::findOrFail($userId);
@@ -23,6 +26,9 @@ class FollowController extends Controller
         return back();
     }
 
+    /**
+     * Entfolgt einem Benutzer.
+     */
     public function unfollow(Request $request, $userId): RedirectResponse
     {
         $userToUnfollow = User::findOrFail($userId);

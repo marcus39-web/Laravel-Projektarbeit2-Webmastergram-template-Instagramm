@@ -6,12 +6,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Cache Store
+    | Standard-Cache-Store
     |--------------------------------------------------------------------------
     |
-    | This option controls the default cache store that will be used by the
-    | framework. This connection is utilized if another isn't explicitly
-    | specified when running a cache operation inside the application.
+    | Diese Option legt fest, welcher Cache-Store standardmäßig vom Framework
+    | verwendet wird. Diese Verbindung wird genutzt, wenn bei einer Cache-Operation
+    | keine andere explizit angegeben wird.
     |
     */
 
@@ -19,15 +19,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Stores
+    | Cache-Stores
     |--------------------------------------------------------------------------
     |
-    | Here you may define all of the cache "stores" for your application as
-    | well as their drivers. You may even define multiple stores for the
-    | same cache driver to group types of items stored in your caches.
+    | Hier kannst du alle Cache-"Stores" für deine Anwendung sowie deren Treiber
+    | definieren. Du kannst sogar mehrere Stores für denselben Treiber anlegen,
+    | um verschiedene Arten von Daten zu gruppieren.
     |
-    | Supported drivers: "array", "database", "file", "memcached",
-    |                    "redis", "dynamodb", "octane", "null"
+    | Unterstützte Treiber: "array", "database", "file", "memcached",
+    |                      "redis", "dynamodb", "octane", "null"
     |
     */
 
@@ -60,7 +60,7 @@ return [
                 env('MEMCACHED_PASSWORD'),
             ],
             'options' => [
-                // Memcached::OPT_CONNECT_TIMEOUT => 2000,
+                // Memcached::OPT_CONNECT_TIMEOUT => 2000, // Verbindungs-Timeout in Millisekunden
             ],
             'servers' => [
                 [
@@ -94,12 +94,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Key Prefix
+    | Präfix für Cache-Keys
     |--------------------------------------------------------------------------
     |
-    | When utilizing the APC, database, memcached, Redis, and DynamoDB cache
-    | stores, there might be other applications using the same cache. For
-    | that reason, you may prefix every cache key to avoid collisions.
+    | Wenn du APC, Datenbank, Memcached, Redis oder DynamoDB als Cache verwendest,
+    | kann es sein, dass andere Anwendungen denselben Cache nutzen. Daher kannst du
+    | jedem Cache-Key ein Präfix voranstellen, um Kollisionen zu vermeiden.
     |
     */
 

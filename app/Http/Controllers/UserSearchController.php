@@ -7,6 +7,9 @@ use App\Models\User;
 
 class UserSearchController extends Controller
 {
+    /**
+     * Zeigt die Suchergebnisse für Benutzer an.
+     */
     public function index(Request $request)
     {
         $searchResults = null;

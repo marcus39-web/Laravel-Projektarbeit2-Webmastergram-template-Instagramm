@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
     /**
-     * Run the migrations.
+     * Erstellt die Tabelle "posts".
      *
      * @return void
      */
@@ -22,7 +22,7 @@ return new class extends Migration {
     }
 
     /**
-     * Reverse the migrations.
+     * Löscht die Tabelle "posts" wieder.
      *
      * @return void
      */

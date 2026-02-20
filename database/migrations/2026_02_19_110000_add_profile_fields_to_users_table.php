@@ -5,6 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
+    /**
+     * Fügt neue Profilfelder zur Tabelle "users" hinzu.
+     */
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
@@ -16,6 +19,9 @@ return new class extends Migration {
         });
     }
 
+    /**
+     * Entfernt die hinzugefügten Profilfelder wieder.
+     */
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {

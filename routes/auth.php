@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
+// Registrierung, Login, Passwort-Reset (nur für Gäste)
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
@@ -34,6 +35,7 @@ Route::middleware('guest')->group(function () {
         ->name('password.store');
 });
 
+// E-Mail-Verifizierung, Passwortänderung, Logout (nur für eingeloggte Nutzer)
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
         ->name('verification.notice');

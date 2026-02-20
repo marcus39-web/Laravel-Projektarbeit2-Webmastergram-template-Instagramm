@@ -1,3 +1,4 @@
+# Basis-Image
 FROM ubuntu:24.04
 
 LABEL maintainer="Taylor Otwell"
@@ -6,19 +7,24 @@ ARG WWWGROUP
 ARG NODE_VERSION=24
 ARG POSTGRES_VERSION=18
 
+# Arbeitsverzeichnis setzen
 WORKDIR /var/www/html
 
+# Umgebungsvariablen setzen
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 ENV SUPERVISOR_PHP_COMMAND="/usr/bin/php -d variables_order=EGPCS /var/www/html/artisan serve --host=0.0.0.0 --port=80"
 ENV SUPERVISOR_PHP_USER="sail"
 
+# Zeitzone konfigurieren
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+# APT-Optionen optimieren
 RUN echo "Acquire::http::Pipeline-Depth 0;" > /etc/apt/apt.conf.d/99custom && \
     echo "Acquire::http::No-Cache true;" >> /etc/apt/apt.conf.d/99custom && \
     echo "Acquire::BrokenProxy    true;" >> /etc/apt/apt.conf.d/99custom
 
+# Pakete und PHP installieren
 RUN apt-get update && apt-get upgrade -y \
     && mkdir -p /etc/apt/keyrings \
     && apt-get install -y gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python3 dnsutils librsvg2-bin fswatch ffmpeg nano \
@@ -52,20 +58,26 @@ RUN apt-get update && apt-get upgrade -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# PHP-Version setzen
 RUN update-alternatives --set php /usr/bin/php8.0
 
+# PHP für Port 80 berechtigen
 RUN setcap "cap_net_bind_service=+ep" /usr/bin/php8.0
 
+# Benutzer für Sail anlegen
 RUN userdel -r ubuntu
 RUN groupadd --force -g $WWWGROUP sail
 RUN useradd -ms /bin/bash --no-user-group -g $WWWGROUP -u 1337 sail
 RUN git config --global --add safe.directory /var/www/html
 
+# Startskripte kopieren
 COPY start-container /usr/local/bin/start-container
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY php.ini /etc/php/8.0/cli/conf.d/99-sail.ini
 RUN chmod +x /usr/local/bin/start-container
 
+# Port 80 freigeben
 EXPOSE 80/tcp
 
+# Einstiegspunkt
 ENTRYPOINT ["start-container"]

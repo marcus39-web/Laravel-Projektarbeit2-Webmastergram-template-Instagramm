@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
+/**
+ * Registriert Event-Listener für die Anwendung.
+ */
 class EventServiceProvider extends ServiceProvider
 {
     protected $listen = [
@@ -13,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         ],
     ];
 
+    /**
+     * Bootstrap für Event-Listener.
+     */
     public function boot(): void
     {
         parent::boot();

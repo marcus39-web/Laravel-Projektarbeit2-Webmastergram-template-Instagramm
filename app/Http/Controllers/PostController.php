@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
+    /**
+     * Speichert einen neuen Post.
+     */
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([

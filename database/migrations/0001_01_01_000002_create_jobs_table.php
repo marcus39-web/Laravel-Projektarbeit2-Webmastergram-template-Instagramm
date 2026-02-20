@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Erstellt die Tabellen "jobs", "job_batches" und "failed_jobs".
      */
     public function up(): void
     {
@@ -46,7 +46,7 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Löscht die Tabellen "jobs", "job_batches" und "failed_jobs" wieder.
      */
     public function down(): void
     {

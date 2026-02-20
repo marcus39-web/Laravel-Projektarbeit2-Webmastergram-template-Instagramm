@@ -4,12 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Queue Connection Name
+    | Standard-Queue-Verbindung
     |--------------------------------------------------------------------------
     |
-    | Laravel's queue supports a variety of backends via a single, unified
-    | API, giving you convenient access to each backend using identical
-    | syntax for each. The default queue connection is defined below.
+    | Die Queue von Laravel unterstützt verschiedene Backends über eine einheitliche
+    | API. So hast du bequemen Zugriff auf jedes Backend mit identischer Syntax.
+    | Die Standard-Queue-Verbindung ist unten definiert.
     |
     */
 
@@ -17,14 +17,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Queue Connections
+    | Queue-Verbindungen
     |--------------------------------------------------------------------------
     |
-    | Here you may configure the connection options for every queue backend
-    | used by your application. An example configuration is provided for
-    | each backend supported by Laravel. You're also free to add more.
+    | Hier kannst du die Verbindungsoptionen für jedes Queue-Backend deiner Anwendung
+    | konfigurieren. Für jedes von Laravel unterstützte Backend gibt es eine Beispiel-
+    | konfiguration. Du kannst beliebig weitere hinzufügen.
     |
-    | Drivers: "sync", "database", "beanstalkd", "sqs", "redis", "null"
+    | Treiber: "sync", "database", "beanstalkd", "sqs", "redis", "null"
     |
     */
 
@@ -76,12 +76,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Job Batching
+    | Job-Batching
     |--------------------------------------------------------------------------
     |
-    | The following options configure the database and table that store job
-    | batching information. These options can be updated to any database
-    | connection and table which has been defined by your application.
+    | Die folgenden Optionen konfigurieren die Datenbank und Tabelle, die
+    | Informationen zu Job-Batches speichern. Diese Optionen können auf jede
+    | in deiner Anwendung definierte Datenbankverbindung und Tabelle angepasst werden.
     |
     */
 
@@ -92,14 +92,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Failed Queue Jobs
+    | Fehlgeschlagene Queue-Jobs
     |--------------------------------------------------------------------------
     |
-    | These options configure the behavior of failed queue job logging so you
-    | can control how and where failed jobs are stored. Laravel ships with
-    | support for storing failed jobs in a simple file or in a database.
+    | Diese Optionen konfigurieren das Verhalten der Protokollierung fehlgeschlagener
+    | Queue-Jobs, sodass du steuern kannst, wie und wo fehlgeschlagene Jobs gespeichert werden.
+    | Laravel unterstützt das Speichern fehlgeschlagener Jobs in einer einfachen Datei oder in einer Datenbank.
     |
-    | Supported drivers: "database-uuids", "dynamodb", "file", "null"
+    | Unterstützte Treiber: "database-uuids", "dynamodb", "file", "null"
     |
     */
 

@@ -4,12 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
+    | Name der Anwendung
     |--------------------------------------------------------------------------
     |
-    | This value is the name of your application, which will be used when the
-    | framework needs to place the application's name in a notification or
-    | other UI elements where an application name needs to be displayed.
+    | Dieser Wert ist der Name deiner Anwendung. Er wird verwendet, wenn das
+    | Framework den Namen der Anwendung in einer Benachrichtigung oder
+    | anderen UI-Elementen anzeigen muss.
     |
     */
 
@@ -17,12 +17,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Environment
+    | Anwendungsumgebung
     |--------------------------------------------------------------------------
     |
-    | This value determines the "environment" your application is currently
-    | running in. This may determine how you prefer to configure various
-    | services the application utilizes. Set this in your ".env" file.
+    | Dieser Wert bestimmt, in welcher "Umgebung" deine Anwendung aktuell läuft.
+    | Dies kann beeinflussen, wie verschiedene Dienste konfiguriert werden.
+    | Setze diesen Wert in deiner ".env"-Datei.
     |
     */
 
@@ -30,12 +30,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Debug Mode
+    | Debug-Modus der Anwendung
     |--------------------------------------------------------------------------
     |
-    | When your application is in debug mode, detailed error messages with
-    | stack traces will be shown on every error that occurs within your
-    | application. If disabled, a simple generic error page is shown.
+    | Wenn deine Anwendung im Debug-Modus läuft, werden detaillierte Fehlermeldungen
+    | mit Stacktraces bei jedem Fehler angezeigt. Ist der Debug-Modus deaktiviert,
+    | wird eine einfache generische Fehlerseite angezeigt.
     |
     */
 
@@ -43,12 +43,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application URL
+    | URL der Anwendung
     |--------------------------------------------------------------------------
     |
-    | This URL is used by the console to properly generate URLs when using
-    | the Artisan command line tool. You should set this to the root of
-    | the application so that it's available within Artisan commands.
+    | Diese URL wird von der Konsole verwendet, um beim Einsatz von Artisan
+    | Befehlen korrekte URLs zu generieren. Setze sie auf das Root-Verzeichnis
+    | deiner Anwendung, damit sie in Artisan-Befehlen verfügbar ist.
     |
     */
 
@@ -56,12 +56,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Timezone
+    | Zeitzone der Anwendung
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the default timezone for your application, which
-    | will be used by the PHP date and date-time functions. The timezone
-    | is set to "UTC" by default as it is suitable for most use cases.
+    | Hier kannst du die Standardzeitzone für deine Anwendung festlegen.
+    | Diese wird von den PHP-Datumsfunktionen verwendet. Standard ist "UTC",
+    | was für die meisten Anwendungsfälle geeignet ist.
     |
     */
 
@@ -69,12 +69,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Locale Configuration
+    | Spracheinstellungen der Anwendung
     |--------------------------------------------------------------------------
     |
-    | The application locale determines the default locale that will be used
-    | by Laravel's translation / localization methods. This option can be
-    | set to any locale for which you plan to have translation strings.
+    | Die Anwendungssprache bestimmt die Standardsprache, die von Laravels
+    | Übersetzungs- und Lokalisierungsmethoden verwendet wird. Dieser Wert
+    | kann auf jede Sprache gesetzt werden, für die Übersetzungen vorliegen.
     |
     */
 
@@ -86,12 +86,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Encryption Key
+    | Verschlüsselungs-Schlüssel
     |--------------------------------------------------------------------------
     |
-    | This key is utilized by Laravel's encryption services and should be set
-    | to a random, 32 character string to ensure that all encrypted values
-    | are secure. You should do this prior to deploying the application.
+    | Dieser Schlüssel wird von Laravels Verschlüsselungsdiensten verwendet
+    | und sollte auf eine zufällige, 32 Zeichen lange Zeichenkette gesetzt
+    | werden, um die Sicherheit aller verschlüsselten Werte zu gewährleisten.
+    | Setze diesen Wert vor dem Deployment der Anwendung.
     |
     */
 
@@ -107,14 +108,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Maintenance Mode Driver
+    | Treiber für den Wartungsmodus
     |--------------------------------------------------------------------------
     |
-    | These configuration options determine the driver used to determine and
-    | manage Laravel's "maintenance mode" status. The "cache" driver will
-    | allow maintenance mode to be controlled across multiple machines.
+    | Diese Optionen bestimmen, welcher Treiber für den Wartungsmodus von
+    | Laravel verwendet wird. Der "cache"-Treiber ermöglicht die Steuerung
+    | des Wartungsmodus über mehrere Server hinweg.
     |
-    | Supported drivers: "file", "cache"
+    | Unterstützte Treiber: "file", "cache"
     |
     */
 

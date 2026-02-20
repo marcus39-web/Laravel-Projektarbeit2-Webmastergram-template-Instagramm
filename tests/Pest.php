@@ -2,12 +2,12 @@
 
 /*
 |--------------------------------------------------------------------------
-| Test Case
+| Testfall
 |--------------------------------------------------------------------------
 |
-| The closure you provide to your test functions is always bound to a specific PHPUnit test
-| case class. By default, that class is "PHPUnit\Framework\TestCase". Of course, you may
-| need to change it using the "pest()" function to bind a different classes or traits.
+| Die Closure, die du deinen Testfunktionen übergibst, ist immer an eine bestimmte PHPUnit-Testfallklasse gebunden.
+| Standardmäßig ist diese Klasse "PHPUnit\Framework\TestCase". Natürlich kannst du dies mit der Funktion "pest()"
+| ändern, um eine andere Klasse oder Traits zu binden.
 |
 */
 
@@ -17,12 +17,12 @@ pest()->extend(Tests\TestCase::class)
 
 /*
 |--------------------------------------------------------------------------
-| Expectations
+| Erwartungen
 |--------------------------------------------------------------------------
 |
-| When you're writing tests, you often need to check that values meet certain conditions. The
-| "expect()" function gives you access to a set of "expectations" methods that you can use
-| to assert different things. Of course, you may extend the Expectation API at any time.
+| Beim Schreiben von Tests musst du oft prüfen, ob Werte bestimmte Bedingungen erfüllen.
+| Die Funktion "expect()" gibt dir Zugriff auf eine Reihe von Methoden, mit denen du verschiedene Dinge prüfen kannst.
+| Natürlich kannst du die Expectation-API jederzeit erweitern.
 |
 */
 

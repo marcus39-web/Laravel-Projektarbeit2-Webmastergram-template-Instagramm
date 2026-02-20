@@ -8,10 +8,16 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
 
+/**
+ * Listener für neue Follower-Benachrichtigungen.
+ */
 class SendNewFollowerNotification implements ShouldQueue
 {
     use InteractsWithQueue;
 
+    /**
+     * Verarbeitet das NewFollower-Event und sendet eine E-Mail.
+     */
     public function handle(NewFollower $event)
     {
         try {

@@ -13,7 +13,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Die Attribute, die massenweise zuweisbar sind.
      *
      * @var list<string>
      */
@@ -25,7 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Die Attribute, die bei der Serialisierung verborgen werden sollen.
      *
      * @var list<string>
      */
@@ -35,7 +35,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Gibt die Attribute zurück, die gecastet werden sollen.
      *
      * @return array<string, string>
      */

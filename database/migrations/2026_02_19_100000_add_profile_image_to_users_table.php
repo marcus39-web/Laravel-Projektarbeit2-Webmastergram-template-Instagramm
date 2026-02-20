@@ -5,6 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
+    /**
+     * Fügt das Profilbild-Feld zur Tabelle "users" hinzu.
+     */
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
@@ -12,6 +15,9 @@ return new class extends Migration {
         });
     }
 
+    /**
+     * Entfernt das Profilbild-Feld wieder.
+     */
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {

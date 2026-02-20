@@ -9,11 +9,11 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Die Datenbank der Anwendung befüllen (seeden).
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // User::factory(10)->create(); // Beispiel: 10 Benutzer generieren
 
         User::factory()->create([
             'name' => 'Test User',

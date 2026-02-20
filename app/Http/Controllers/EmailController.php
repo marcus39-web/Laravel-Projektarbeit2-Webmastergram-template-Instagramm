@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Mail;
 class EmailController extends Controller
 {
     /**
-     * Show the form for creating a new email.
+     * Zeigt das Formular zum Erstellen einer neuen E-Mail.
      *
      * @return \Illuminate\View\View
      */
@@ -18,7 +18,7 @@ class EmailController extends Controller
     }
 
     /**
-     * Send an email.
+     * Sendet eine E-Mail.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
