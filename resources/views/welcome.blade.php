@@ -81,4 +81,7 @@
         <a href="{{ route('register') }}">Registrieren</a>
     </div>
 </body>
+<footer>
+    <p>&copy; 2026 Marcus. Alle Rechte vorbehalten.</p>
+</footer>
 </html>
