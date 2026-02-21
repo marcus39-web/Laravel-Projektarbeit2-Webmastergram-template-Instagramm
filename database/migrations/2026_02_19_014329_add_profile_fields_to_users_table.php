@@ -7,17 +7,21 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Führt die Migration aus.
      */
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->text('bio')->nullable();
+            $table->string('location')->nullable();
+            $table->string('website')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Macht die Migration rückgängig.
      */
     public function down(): void
     {

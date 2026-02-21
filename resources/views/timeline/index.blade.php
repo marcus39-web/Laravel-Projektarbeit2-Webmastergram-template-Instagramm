@@ -59,7 +59,7 @@
                                     @if($followed->profile_image)
                                         <img src="{{ asset('storage/' . $followed->profile_image) }}" alt="Profilbild" class="w-8 h-8 rounded-full mr-2">
                                     @else
-                                        <span class="inline-block w-8 h-8 rounded-full bg-gray-200 text-center mr-2 flex items-center justify-center">{{ strtoupper(substr($followed->name,0,1)) }}</span>
+                                        <span class="w-8 h-8 rounded-full bg-gray-200 text-center mr-2 flex items-center justify-center">{{ strtoupper(substr($followed->name,0,1)) }}</span>
                                     @endif
                                     <span>{{ $followed->name }}</span>
                                 </a>
