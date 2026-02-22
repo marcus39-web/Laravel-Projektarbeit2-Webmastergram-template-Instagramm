@@ -138,13 +138,13 @@ Bitte Code sauber halten und deutsche Kommentare für den Ablauf verwenden.
 
 ## Lizenz
 
-Dieses Projekt steht unter der MIT-Lizenz.
+Dieses Projekt steht unter der MIT-Lizenz. (Siehe Tree LIZENSE)
 
 ---
 
 ## Copyright
 
-Dieses Projekt wurde von Marcus Reiser erstellt. Alle Rechte vorbehalten.
+Dieses Projekt wurde von Marcus Reiser 08.02.1970 erstellt. Alle Rechte vorbehalten.
 
 ---
 
