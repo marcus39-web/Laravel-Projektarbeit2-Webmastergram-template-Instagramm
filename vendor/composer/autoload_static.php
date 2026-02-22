@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit418fe36f0a24858e6c7223475cb6ebba
+class ComposerStaticInit606217c7b58403eb9937426eb6aa445c
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -636,6 +636,7 @@ class ComposerStaticInit418fe36f0a24858e6c7223475cb6ebba
     );
 
     public static $classMap = array (
+        'App\\Events\\NewFollower' => __DIR__ . '/../..' . '/app/Events/NewFollower.php',
         'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmablePasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmablePasswordController.php',
         'App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/EmailVerificationNotificationController.php',
@@ -648,12 +649,22 @@ class ComposerStaticInit418fe36f0a24858e6c7223475cb6ebba
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\EmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmailController.php',
+        'App\\Http\\Controllers\\FollowController' => __DIR__ . '/../..' . '/app/Http/Controllers/FollowController.php',
+        'App\\Http\\Controllers\\LikeController' => __DIR__ . '/../..' . '/app/Http/Controllers/LikeController.php',
+        'App\\Http\\Controllers\\NotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/NotificationController.php',
         'App\\Http\\Controllers\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostController.php',
+        'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
+        'App\\Http\\Controllers\\TimelineController' => __DIR__ . '/../..' . '/app/Http/Controllers/TimelineController.php',
+        'App\\Http\\Controllers\\UserSearchController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserSearchController.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
+        'App\\Listeners\\SendNewFollowerNotification' => __DIR__ . '/../..' . '/app/Listeners/SendNewFollowerNotification.php',
+        'App\\Mail\\NewFollowerMail' => __DIR__ . '/../..' . '/app/Mail/NewFollowerMail.php',
         'App\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Notifications\\NewFollowerNotification' => __DIR__ . '/../..' . '/app/Notifications/NewFollowerNotification.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
+        'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\View\\Components\\AppLayout' => __DIR__ . '/../..' . '/app/View/Components/AppLayout.php',
         'App\\View\\Components\\GuestLayout' => __DIR__ . '/../..' . '/app/View/Components/GuestLayout.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -8171,9 +8182,9 @@ class ComposerStaticInit418fe36f0a24858e6c7223475cb6ebba
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit418fe36f0a24858e6c7223475cb6ebba::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit418fe36f0a24858e6c7223475cb6ebba::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit418fe36f0a24858e6c7223475cb6ebba::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit606217c7b58403eb9937426eb6aa445c::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit606217c7b58403eb9937426eb6aa445c::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit606217c7b58403eb9937426eb6aa445c::$classMap;
 
         }, null, ClassLoader::class);
     }

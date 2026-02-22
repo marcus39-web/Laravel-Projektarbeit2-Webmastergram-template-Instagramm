@@ -4,6 +4,7 @@ namespace Illuminate\Auth\Listeners;
 
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Log;
 
 class SendEmailVerificationNotification
 {
@@ -15,6 +16,8 @@ class SendEmailVerificationNotification
      */
     public function handle(Registered $event)
     {
+        Log::info('SendEmailVerificationNotification ausgeführt', ['user_id' => $event->user->id]);
+
         if ($event->user instanceof MustVerifyEmail && ! $event->user->hasVerifiedEmail()) {
             $event->user->sendEmailVerificationNotification();
         }

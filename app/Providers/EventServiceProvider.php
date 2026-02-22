@@ -10,7 +10,18 @@ use Illuminate\Support\Facades\Event;
  */
 class EventServiceProvider extends ServiceProvider
 {
+    /**
+     * The event listener mappings for the application.
+     *
+     * @var array
+     */
     protected $listen = [
+        // User-related events
+        \Illuminate\Auth\Events\Registered::class => [
+            // \Illuminate\Auth\Listeners\SendEmailVerificationNotification::class,
+        ],
+
+        // Application-specific events
         \App\Events\NewFollower::class => [
             \App\Listeners\SendNewFollowerNotification::class,
         ],

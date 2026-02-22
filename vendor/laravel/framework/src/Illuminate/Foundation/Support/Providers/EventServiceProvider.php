@@ -223,9 +223,6 @@ class EventServiceProvider extends ServiceProvider
      */
     protected function configureEmailVerification()
     {
-        if (! isset($this->listen[Registered::class]) ||
-            ! in_array(SendEmailVerificationNotification::class, Arr::wrap($this->listen[Registered::class]))) {
-            Event::listen(Registered::class, SendEmailVerificationNotification::class);
-        }
+        // Event::listen(Registered::class, SendEmailVerificationNotification::class);
     }
 }

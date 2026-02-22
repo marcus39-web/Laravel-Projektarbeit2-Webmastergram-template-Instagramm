@@ -45,15 +45,25 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->only(['name', 'bio', 'location', 'website', 'twitter', 'instagram']));
+        try {
+            \Log::info('Daten vor dem Speichern', $request->only(['name', 'bio', 'location', 'website', 'twitter', 'instagram']));
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+            $request->user()->fill($request->only(['name', 'bio', 'location', 'website', 'twitter', 'instagram']));
+
+            if ($request->user()->isDirty('email')) {
+                \Log::info('E-Mail wurde geändert', ['alte_email' => $request->user()->getOriginal('email'), 'neue_email' => $request->user()->email]);
+                $request->user()->email_verified_at = null;
+            }
+
+            $request->user()->save();
+
+            \Log::info('Daten nach dem Speichern', $request->user()->toArray());
+
+            return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        } catch (\Exception $e) {
+            \Log::error('Fehler beim Aktualisieren des Profils: ' . $e->getMessage());
+            return Redirect::route('profile.edit')->withErrors(['update_error' => 'Das Profil konnte nicht aktualisiert werden.']);
         }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
     /**

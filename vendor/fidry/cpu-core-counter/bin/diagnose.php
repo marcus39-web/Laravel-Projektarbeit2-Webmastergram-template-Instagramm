@@ -1,5 +1,6 @@
-<?php
 #!/usr/bin/env php
+<?php
+
 /*
  * This file is part of the Fidry CPUCounter Config package.
  *
